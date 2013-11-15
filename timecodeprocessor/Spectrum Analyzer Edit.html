@@ -1,0 +1,346 @@
+<!--
+TODO:
+Clean up the website appearance, make it meaningful (Including timecode display)
+Comment the code and remove cruft
+Port the code into external js file?
+Rename files to be more meaningful
+
+Investigate how to get the callbacks to always send, regardless of lag caused by browser
+-->
+
+
+
+<!DOCTYPE html><!--<html xmlns="http://www.w3.org/1999/html">--><head><title>
+    Loading and playing a sound with the Web Audio API
+</title><script type="text/javascript" async="" src="http://www.google-analytics.com/ga.js"></script>
+    <script src="./js/jquery-1.10.2.min.js" type="text/javascript"></script>
+    <script src="./js/audio_analyzer.js"></script>
+    <script src="./js/binary_decoder.js"></script>
+    <script type="text/javascript" src="./js/timecode_display.js"></script>
+    <script type="text/javascript" src="./js/date_time.js"></script><style>
+
+
+        * {
+            font-family: sans-serif;
+        }
+
+    </style></head><body style="background-color: white;"><h2>
+    Graph will start animating when music is loaded
+</h2><p>
+    For more information on how this is done look at
+    <a href="http://www.smartjava.org/content/exploring-html5-web-audio-visualizing-sound">
+        this article.
+    </a>
+    .
+
+</p>
+<canvas id="canvas" style="display: block;" height="325" width="1000"></canvas>
+
+<span id="timecode_display"></span><br>
+<span id="date_time"></span>
+<script type="text/javascript">window.onload = date_time('date_time');</script>
+
+<script type="text/javascript">
+
+    // create the audio context (chrome only for now)
+    var context = new webkitAudioContext();
+    var audioAnalyzer = new AudioAnalyzer();
+    var timecodeReader = new TimecodeReader();
+    var audioBuffer;
+    var sourceNode;
+    var analyser;
+    var javascriptNode;
+    var currentSample = 0;
+
+
+
+
+    // get the context from the canvas to draw on
+    var ctx = $("#canvas").get()[0].getContext("2d");
+
+    // create a gradient for the fill. Note the strange
+    // offset, since the gradient is calculated based on
+    // the canvas, not the specific element we draw
+    var gradient = ctx.createLinearGradient(0,0,0,300);
+    gradient.addColorStop(1,'#000000');
+    gradient.addColorStop(0.75,'#ff0000');
+    gradient.addColorStop(0.25,'#ffff00');
+    gradient.addColorStop(0,'#ffffff');
+
+
+    // load the sound
+    //loadSound("music&timecode&filter4.wav");
+    loadSound("./media/fullSongTest.wav");
+    //loadSound("DoubleTime.wav")
+    //setupAudioNodes();
+
+    function setupAudioNodes(buffer) {
+
+        // setup a javascript node
+        javascriptNode = context.createJavaScriptNode(256, 1, 1);
+        javascriptNode.timesRan = 0;
+
+        // connect to destination, else it isn't called
+        javascriptNode.connect(context.destination);
+
+
+
+        // setup a analyzer
+        analyser = context.createAnalyser();
+        analyser.smoothingTimeConstant = 0;
+        analyser.fftSize = 256;
+        analyser.minDecibels=-100;
+        analyser.maxDecibels=-30;
+
+        gainNode = context.createGainNode();
+        gainNode.gain.value = .1;
+
+        //first filter
+        filter1 = context.createBiquadFilter();
+        filter1.type = 2;  // bandpass
+        filter1.frequency.value = 18500;
+        filter1.Q.value = 10;
+
+        //second filter
+        filter2 = context.createBiquadFilter();
+        filter2.type = 2;  // bandpass
+        filter2.frequency.value = 19500;
+        filter2.Q.value = 10;
+
+        //third filter
+        filter3 = context.createBiquadFilter();
+        filter3.type = 4;  // highshelf
+        filter3.frequency.value = 18000;
+        filter3.gain.value = 40;
+
+        //fourth filter
+        filter4 = context.createBiquadFilter();
+        filter4.type = 3;  // lowshelf
+        filter4.frequency.value = 18000;
+        filter4.gain.value = -40;
+
+        //fifth filter
+        filter5 = context.createBiquadFilter();
+        filter5.type = 4;  // highshelf
+        filter5.frequency.value = 20000;
+        filter5.gain.value = -40;
+
+        //sixth filter
+        filter6 = context.createBiquadFilter();
+        filter6.type = 3;  // lowshelf
+        filter6.frequency.value = 20000;
+        filter6.gain.value = 40;
+
+        //seventh filter
+        filter7 = context.createBiquadFilter();
+        filter7.type = 6;  // bandstop
+        filter7.frequency.value = 19000;
+        filter7.Q.value = 4;
+
+
+
+
+        // create a buffer source node
+        sourceNode = context.createBufferSource();
+        sourceNode.buffer = buffer;
+        sourceNode.connect(filter1);
+
+        filter1.connect(filter2);
+        filter2.connect(filter3);
+        filter3.connect(filter4);
+        filter4.connect(filter5);
+        filter5.connect(filter6);
+        filter6.connect(filter7);
+        filter7.connect(analyser);
+
+        analyser.connect(javascriptNode);
+
+        //sourceNode.connect(gainNode);
+        sourceNode.connect(context.destination);
+
+        // when the javascript node is called
+        // we use information from the analyzer node
+        // to draw the volume
+
+        javascriptNode.onaudioprocess = function(e) {
+
+
+            //try sending buffer to node.js using XMLHTTPRequest and asynchronously receiving a response with binary data (or a timestamp?) in it
+
+            context.lastTime=context.currentTime;
+            if (sourceNode.playbackState == sourceNode.UNSCHEDULED_STATE){
+                sourceNode.playbackRate.value = 1;
+                console.log("Turning on: ", context.currentTime);
+                sourceNode.noteOn(0);
+                console.log("Turned on: ", context.currentTime);
+                audioAnalyzer.currentSample = 0;
+            }
+
+            //console.log("Start: ",context.currentTime);
+
+            //console.log("Time since last call: ", context.currentTime-context.lastTime);
+            //console.log("Time domain data: ", value.slice);
+            //console.log(javascriptNode.inputBuffer);
+
+            //console.log(sourceNode.playbackState);
+
+
+            if (sourceNode.playbackState == sourceNode.PLAYING_STATE) {
+            //console.log(e.inputBuffer.getChannelData(0));
+                javascriptNode.timesRan+=1;
+               /*
+                if (!e) var e = window.event;
+                var timeData = e.inputBuffer.getChannelData(0);
+                var fullBuffer = sourceNode.buffer.getChannelData(0);
+                */
+                //document.write(e.inputBuffer.getChannelData(0)[0]);
+
+                /*
+                for (var i=0; i<timeData.length; i++){
+                    audioAnalyzer.storedTimeData.push(timeData[i]);
+                }
+                audioAnalyzer.currentSample+=256;
+                */
+
+                // get the average for the first channel
+
+                var longarray =  new Float32Array(analyser.frequencyBinCount);
+                analyser.getFloatFrequencyData(longarray);
+                var array = new Float32Array(analyser.frequencyBinCount+1);
+                for (var i=0; i<longarray.length; i++) {
+                    array[i]=(longarray[i]-analyser.minDecibels);
+                }
+                array[array.length-1]=context.currentTime;
+
+                //console.log (context.currentTime, array[0], array[array.length-1]);
+                sendBuffer("http://localhost:8080/",array);
+                //console.log(checkBuffer(timeData,fullBuffer));
+                //console.log (context.currentTime);
+
+                /*
+                timecode tracking
+
+                receivedBit = audioAnalyzer.readCurrentPulse(array);
+                //console.log(receivedBit);
+                timecodeReader.receiveBit(receivedBit);
+
+                //console.log(audioAnalyzer.pulseData);
+                */
+
+                /* draw the spectrum
+                // clear the current state
+                ctx.clearRect(0, 0, 1000, 325);
+
+                // set the fill style
+                ctx.fillStyle=gradient;
+
+                drawSpectrum(array);
+                */
+            }
+
+        }
+
+    }
+
+
+    // load the specified sound
+    function loadSound(url) {
+        var request = new XMLHttpRequest();
+        request.open('GET', url, true);
+        request.responseType = 'arraybuffer';
+        //request.setRequestHeader('Access-Control-Allow-Origin','*');
+
+        // When loaded decode the data
+        request.onload = function() {
+
+            // decode the data
+            context.decodeAudioData(request.response, function(buffer) {
+                // when the audio is decoded play the sound
+                setupAudioNodes(buffer);
+            }, onError);
+        }
+        request.send();
+    }
+
+    function sendBuffer(serverURL, buffer) {
+        var request = new XMLHttpRequest();
+        request.open('POST',serverURL, true);
+        //request.setRequestHeader('Date',JSON.stringify(context.currentTime));
+
+        //request.setRequestHeader('Access-Control-Allow-Origin', '*');
+        request.onload = function() {
+            //console.log(request.response);
+            timecode_display('timecode_display',request.response);
+        }
+        request.send(buffer);
+    }
+
+
+
+
+    function playSound(buffer) {
+        sourceNode.buffer = buffer;
+        //channel = sourceNode.buffer.getChannel(0);
+        //console.log(channel.getSlice(0,256));
+        //sourceNode.noteOn(0);
+        //document.write("Just started playing");
+
+    }
+
+    // log if an error occurs
+    function onError(e) {
+        console.log(e);
+    }
+
+    function drawSpectrum(array) {
+        for ( var i = 0; i < (array.length); i++ ){
+            var value = array[i];
+
+            ctx.fillRect(i*5,325-value,3,325);
+            //  console.log([i,value])
+        }
+    };
+
+    function checkBuffer(buffer,channelData) {
+        var channelData2 = [];
+        for (var i = 0; i<channelData.length; i++) {
+            channelData2.push(channelData[i]);
+        }
+        var buffer2 = [];
+        for (var i=0; i<buffer.length; i++) {
+            buffer2.push(buffer[i]);
+        }
+        var lastIndex=0;
+        var indexArray = [];
+        while (lastIndex != -1) {
+            var index = channelData2.indexOf(buffer2[0],lastIndex+1);
+            //console.log(buffer[0]);
+            //console.log(index);
+            if (index != -1){
+                indexArray.push(index);
+            }
+            lastIndex = index;
+        }
+        //console.log(indexArray);
+        var check = 0;
+        for (var n = 0; n < indexArray.length; n++){
+            check = 0;
+            for (var i = 0; i<buffer2.length; i++)  {
+                if (buffer2[i] != channelData2[i+indexArray[n]]){
+                    check = 1;
+                    break;
+                }
+            }
+            if (check == 0){
+                return indexArray[n];
+            }
+        }
+        return "Nothing found"
+    };
+
+
+</script>
+<!---
+<script type="text/javascript">window.onload = timecode_display('timecode_display',timecodeReader);</script>
+</body></html>
+-->
