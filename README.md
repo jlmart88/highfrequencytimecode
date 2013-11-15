@@ -2,6 +2,7 @@ highfrequencytimecode
 =====================
 
 High-Frequency Modulation Timecode Project for the Opera of the Future Lab
+
 Authors: Justin Martinez, Garrett Parrish
 
 Goal
@@ -28,3 +29,5 @@ For our purposes, we have used the Web Audio API[http://www.w3.org/TR/webaudio/]
 Currently Known Bugs
 ===================
 The biggest known problem with the project currently is due the inconsistency of our JavaScript implementation in scheduling events. Due to the high speeds at which the audio needs to be analyzed, the Web Audio API needs to perform a FFT every 256 samples. The consequence of this is that the web page player must be the only open web page in the browser to schedule the notes correctly, since it requires as much of the processing power of the web page as possible. 
+
+We have also only tested with .wav files, so are unsure of the behavior after common compression techniques (i.e. .mp3)
