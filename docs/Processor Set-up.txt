@@ -1,0 +1,11 @@
+How to set up the processor:
+
+Terminal:
+cd /timecodeprocessor
+python -m SimpleHTTPServer
+
+New Terminal:
+node ./node/NodeTesting.js
+
+Chrome:
+http://localhost:8000/Spectrum%20Analyzer%20Edit.html
