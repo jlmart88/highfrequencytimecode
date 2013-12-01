@@ -1,10 +1,10 @@
-This is pdfTeX, Version 3.1415926-2.4-1.40.13 (TeX Live 2012) (format=pdflatex 2012.6.30)  1 DEC 2013 17:17
+This is pdfTeX, Version 3.1415926-2.4-1.40.13 (TeX Live 2012) (format=pdflatex 2012.6.30)  1 DEC 2013 17:21
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
  %&-line parsing enabled.
-**HFMEncoding.tex
-(./HFMEncoding.tex
+**HFMDecoding.tex
+(./HFMDecoding.tex
 LaTeX2e <2011/06/27>
 Babel <v3.8m> and hyphenation patterns for english, dumylang, nohyphenation, ge
 rman-x-2012-05-30, ngerman-x-2012-05-30, afrikaans, ancientgreek, ibycus, arabi
@@ -335,8 +335,8 @@ LaTeX Info: Redefining \] on input line 2667.
 \mhchem@option@minussidebearingleft=\skip72
 \mhchem@option@minussidebearingright=\skip73
 )
-(./HFMEncoding.aux)
-\openout1 = `HFMEncoding.aux'.
+(./HFMDecoding.aux)
+\openout1 = `HFMDecoding.aux'.
 
 LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 71.
 LaTeX Font Info:    ... okay on input line 71.
@@ -355,7 +355,7 @@ LaTeX Font Info:    Try loading font information for T1+ptm on input line 71.
 (/usr/local/texlive/2012/texmf-dist/tex/latex/psnfss/t1ptm.fd
 File: t1ptm.fd 2001/06/04 font definitions for T1/ptm.
 )
-\openout3 = `acs-HFMEncoding.bib'.
+\openout3 = `acs-HFMDecoding.bib'.
 
 
 *geometry* driver: auto-detecting
@@ -531,40 +531,58 @@ LaTeX Font Info:    Font shape `T1/ptm/bx/n' in size <17.28> not available
 (Font)              Font shape `T1/ptm/b/n' tried instead on input line 85.
 LaTeX Font Info:    Font shape `T1/ptm/bx/n' in size <14.4> not available
 (Font)              Font shape `T1/ptm/b/n' tried instead on input line 89.
-LaTeX Font Info:    Try loading font information for T1+pcr on input line 97.
 
+
+LaTeX Warning: Reference `sch:example' on page 1 undefined on input line 94.
+
+LaTeX Font Info:    Try loading font information for T1+pcr on input line 97.
 (/usr/local/texlive/2012/texmf-dist/tex/latex/psnfss/t1pcr.fd
 File: t1pcr.fd 2001/06/04 font definitions for T1/pcr.
 ) [1
 
-{/usr/local/texlive/2012/texmf-var/fonts/map/pdftex/updmap/pdftex.map}] [2]
+{/usr/local/texlive/2012/texmf-var/fonts/map/pdftex/updmap/pdftex.map}]
+
+LaTeX Warning: Reference `eqn:example' on page 2 undefined on input line 135.
+
+
+LaTeX Warning: Reference `tbl:example' on page 2 undefined on input line 156.
+
+[2]
+
+LaTeX Warning: Reference `tbl:notes' on page 3 undefined on input line 176.
+
 LaTeX Info: Redefining \bond on input line 195.
 LaTeX Info: Redefining \dbond on input line 195.
 LaTeX Info: Redefining \tbond on input line 195.
 LaTeX Font Info:    Font shape `T1/pcr/m/it' in size <12> not available
 (Font)              Font shape `T1/pcr/m/sl' tried instead on input line 201.
- [3]
-(./HFMEncoding.aux) ) 
+[3] (./HFMDecoding.aux)
+
+LaTeX Warning: There were undefined references.
+
+
+LaTeX Warning: Label(s) may have changed. Rerun to get cross-references right.
+
+ ) 
 Here is how much of TeX's memory you used:
- 5797 strings out of 493488
- 87254 string characters out of 3141326
- 158520 words of memory out of 3000000
+ 5798 strings out of 493488
+ 87260 string characters out of 3141326
+ 158472 words of memory out of 3000000
  8957 multiletter control sequences out of 15000+200000
- 90800 words of font info for 132 fonts, out of 3000000 for 9000
+ 91907 words of font info for 133 fonts, out of 3000000 for 9000
  957 hyphenation exceptions out of 8191
  60i,13n,94p,239b,467s stack positions out of 5000i,500n,10000p,200000b,50000s
-{/usr/local/texlive/2012/texmf-dist/fonts/enc/dvips/base/8
-r.enc}</usr/local/texlive/2012/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.
-pfb></usr/local/texlive/2012/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.p
-fb></usr/local/texlive/2012/texmf-dist/fonts/type1/urw/courier/ucrr8a.pfb></usr
-/local/texlive/2012/texmf-dist/fonts/type1/urw/courier/ucrro8a.pfb></usr/local/
-texlive/2012/texmf-dist/fonts/type1/urw/helvetic/uhvb8a.pfb></usr/local/texlive
-/2012/texmf-dist/fonts/type1/urw/helvetic/uhvr8a.pfb></usr/local/texlive/2012/t
-exmf-dist/fonts/type1/urw/symbol/usyr.pfb></usr/local/texlive/2012/texmf-dist/f
-onts/type1/urw/times/utmb8a.pfb></usr/local/texlive/2012/texmf-dist/fonts/type1
-/urw/times/utmr8a.pfb></usr/local/texlive/2012/texmf-dist/fonts/type1/urw/times
-/utmri8a.pfb>
-Output written on HFMEncoding.pdf (3 pages, 88454 bytes).
+{/usr/local/texlive/2012/texmf-dist/fonts/enc/dvips/base/8r.enc}</usr/local/t
+exlive/2012/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/local/tex
+live/2012/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/local/texl
+ive/2012/texmf-dist/fonts/type1/urw/courier/ucrr8a.pfb></usr/local/texlive/2012
+/texmf-dist/fonts/type1/urw/courier/ucrro8a.pfb></usr/local/texlive/2012/texmf-
+dist/fonts/type1/urw/helvetic/uhvb8a.pfb></usr/local/texlive/2012/texmf-dist/fo
+nts/type1/urw/helvetic/uhvr8a.pfb></usr/local/texlive/2012/texmf-dist/fonts/typ
+e1/urw/symbol/usyr.pfb></usr/local/texlive/2012/texmf-dist/fonts/type1/urw/time
+s/utmb8a.pfb></usr/local/texlive/2012/texmf-dist/fonts/type1/urw/times/utmr8a.p
+fb></usr/local/texlive/2012/texmf-dist/fonts/type1/urw/times/utmri8a.pfb>
+Output written on HFMDecoding.pdf (3 pages, 89547 bytes).
 PDF statistics:
  55 PDF objects out of 1000 (max. 8388607)
  39 compressed objects within 1 object stream
