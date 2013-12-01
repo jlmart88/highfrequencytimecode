@@ -6,7 +6,7 @@
     <ignored path=".idea/workspace.xml" />
     <file path="/Spectrogram.html" changelist="604dcc41-da5d-4bab-a306-895f0f447765" time="1373651376088" ignored="false" />
     <file path="/Spectrum Analyzer.html" changelist="604dcc41-da5d-4bab-a306-895f0f447765" time="1373653613008" ignored="false" />
-    <file path="/Spectrum Analyzer Edit.html" changelist="604dcc41-da5d-4bab-a306-895f0f447765" time="1384537850093" ignored="false" />
+    <file path="/Spectrum Analyzer Edit.html" changelist="604dcc41-da5d-4bab-a306-895f0f447765" time="1385425620223" ignored="false" />
     <file path="/audio_analyzer.js" changelist="604dcc41-da5d-4bab-a306-895f0f447765" time="1375904403655" ignored="false" />
     <file path="/binary_decoder.js" changelist="604dcc41-da5d-4bab-a306-895f0f447765" time="1375819141286" ignored="false" />
     <file path="/timecode_display.js" changelist="604dcc41-da5d-4bab-a306-895f0f447765" time="1376677766458" ignored="false" />
@@ -32,22 +32,48 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="Spectrum Analyzer Edit.html" pinned="false" current="true" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/Spectrum Analyzer Edit.html">
+      <file leaf-file-name="audio_analyzer.js" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/js/audio_analyzer.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="38" column="0" selection-start="1316" selection-end="1316" vertical-scroll-proportion="0.33256352">
+            <state line="132" column="39" selection-start="3788" selection-end="3788" vertical-scroll-proportion="0.0">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Timecode_Processor_Client.html" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/Timecode_Processor_Client.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="5" column="27" selection-start="190" selection-end="190" vertical-scroll-proportion="-3.125">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="NodeTesting.js" pinned="false" current="true" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/node/NodeTesting.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="18" column="135" selection-start="647" selection-end="647" vertical-scroll-proportion="0.5744681">
               <folding>
-                <element signature="n#style#0;n#body#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#canvas#0;n#body#0;n#!!top" expanded="true" />
+                <element signature="n#!!doc" expanded="true" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="NodeTesting.js" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/node/NodeTesting.js">
+      <file leaf-file-name="binary_decoder.js" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/js/binary_decoder.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="2" column="73" selection-start="41" selection-end="41" vertical-scroll-proportion="0.0">
+            <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="binary_decoder2.js" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/js/binary_decoder2.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
@@ -73,13 +99,14 @@
         <option value="$PROJECT_DIR$/binary_decoder2.js" />
         <option value="$PROJECT_DIR$/NodeTesting.js" />
         <option value="$PROJECT_DIR$/node/NodeTesting.js" />
+        <option value="$PROJECT_DIR$/js/audio_analyzer.js" />
         <option value="$PROJECT_DIR$/Spectrum Analyzer Edit.html" />
       </list>
     </option>
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="177" />
-    <option name="y" value="23" />
+    <option name="x" value="183" />
+    <option name="y" value="70" />
     <option name="width" value="1263" />
     <option name="height" value="618" />
   </component>
@@ -113,14 +140,14 @@
   <component name="PropertiesComponent">
     <property name="options.splitter.main.proportions" value="0.3" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="recentsLimit" value="5" />
     <property name="options.lastSelected" value="project.propDebugger" />
-    <property name="restartRequiresConfirmation" value="true" />
+    <property name="recentsLimit" value="5" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$/timecode_display.js" />
+    <property name="restartRequiresConfirmation" value="true" />
     <property name="FullScreen" value="false" />
     <property name="DefaultHtmlFileTemplate" value="Html5" />
-    <property name="options.splitter.details.proportions" value="0.2" />
     <property name="options.searchVisible" value="true" />
+    <property name="options.splitter.details.proportions" value="0.2" />
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
@@ -230,18 +257,18 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="177" y="23" width="1263" height="618" extended-state="0" />
-    <editor active="false" />
+    <frame x="183" y="70" width="1263" height="618" extended-state="0" />
+    <editor active="true" />
     <layout>
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32994187" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
-      <window_info id="Structure" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.17741935" sideWeight="0.59839356" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.17741935" sideWeight="0.59839356" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.24982105" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.40160644" sideWeight="0.4996421" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
-      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4011628" sideWeight="0.5003579" order="7" side_tool="true" content_ui="tabs" />
+      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4011628" sideWeight="0.5003579" order="9" side_tool="true" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
@@ -314,27 +341,11 @@
     </breakpoint-manager>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/Spectrum Analyzer Edit.html">
+    <entry file="file://$PROJECT_DIR$/node/NodeTesting.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
+        <state line="2" column="73" selection-start="41" selection-end="41" vertical-scroll-proportion="0.0">
           <folding>
-            <element signature="n#style#0;n#body#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#canvas#0;n#body#0;n#!!top" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Spectrum Analyzer.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="136" column="5" selection-start="0" selection-end="4170" vertical-scroll-proportion="0.0" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Spectrum Analyzer Edit.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="98" column="151" selection-start="3352" selection-end="3352" vertical-scroll-proportion="0.0">
-          <folding>
-            <element signature="n#style#0;n#body#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#canvas#0;n#body#0;n#!!top" expanded="true" />
+            <element signature="n#!!doc" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -347,21 +358,6 @@
     <entry file="http://www.smartjava.org/examples/webaudio-filters/#">
       <provider selected="true" editor-type-id="httpFileEditor">
         <state />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Spectrogram.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="32" column="0" selection-start="1169" selection-end="1169" vertical-scroll-proportion="0.8135593" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Spectrum Analyzer.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="58" column="57" selection-start="2028" selection-end="2028" vertical-scroll-proportion="0.02446982" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Time Display.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="9" column="82" selection-start="369" selection-end="477" vertical-scroll-proportion="0.3026906" />
       </provider>
     </entry>
     <entry file="jar://$APPLICATION_HOME_DIR$/plugins/JavaScriptLanguage/lib/JavascriptLanguage.jar!/com/intellij/lang/javascript/index/predefined/ECMAScript.js2">
@@ -378,19 +374,39 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/node/NodeTesting.js">
+    <entry file="file://$PROJECT_DIR$/js/binary_decoder2.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="2" column="73" selection-start="41" selection-end="41" vertical-scroll-proportion="0.0">
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Spectrum Analyzer Edit.html">
+    <entry file="file://$PROJECT_DIR$/js/binary_decoder.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="38" column="0" selection-start="1316" selection-end="1316" vertical-scroll-proportion="0.33256352">
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/js/audio_analyzer.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="132" column="39" selection-start="3788" selection-end="3788" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Timecode_Processor_Client.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="5" column="27" selection-start="190" selection-end="190" vertical-scroll-proportion="-3.125">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/node/NodeTesting.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="18" column="135" selection-start="647" selection-end="647" vertical-scroll-proportion="0.5744681">
           <folding>
-            <element signature="n#style#0;n#body#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#canvas#0;n#body#0;n#!!top" expanded="true" />
+            <element signature="n#!!doc" expanded="true" />
           </folding>
         </state>
       </provider>

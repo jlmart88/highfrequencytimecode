@@ -129,7 +129,7 @@ exports.AudioAnalyzer = AudioAnalyzer;
 
 
 Array.prototype.compare = function (array) {
-    // if the other array is a falsy value, return
+    // if the other array is a false value, return
     if (!array)
         return false;
 
